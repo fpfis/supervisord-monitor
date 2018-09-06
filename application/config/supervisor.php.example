@@ -13,6 +13,11 @@ $config['enable_alarm'] = true;
 // Show hostname after server name
 $config['show_host'] = false;
 
+if(file_exists("servers.yaml"){
+
+$config['supervisor_servers'] = yaml_parse_file("servers.yaml");
+}else{
+
 $config['supervisor_servers'] = array(
 	'server01' => array(
 		'url' => 'http://server01.app/RPC2',
@@ -29,6 +34,7 @@ $config['supervisor_servers'] = array(
                 'port' => '9001'
         ),
 );
+}
 
 // Set timeout connecting to remote supervisord RPC2 interface
 $config['timeout'] = 3;
