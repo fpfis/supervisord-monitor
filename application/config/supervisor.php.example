@@ -13,8 +13,8 @@ $config['enable_alarm'] = false;
 // Show hostname after server name
 $config['show_host'] = false;
 
-if(file_exists(__DIR__."servers.yaml")){
-	$config['supervisor_servers'] = yaml_parse_file("servers.yaml");
+if(file_exists(__DIR__."/server.yaml")){
+	$config['supervisor_servers'] = yaml_parse_file(__DIR__."/server.yaml");
 
 }else{
 
