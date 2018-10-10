@@ -8,32 +8,32 @@ $config['supervisor_cols'] = 2;
 $config['refresh'] = 10;
 
 // Enable or disable Alarm Sound
-$config['enable_alarm'] = true;
+$config['enable_alarm'] = false;
 
 // Show hostname after server name
 $config['show_host'] = false;
 
-if(file_exists("servers.yaml"){
+if(file_exists(__DIR__."servers.yaml")){
+	$config['supervisor_servers'] = yaml_parse_file("servers.yaml");
 
-$config['supervisor_servers'] = yaml_parse_file("servers.yaml");
 }else{
 
-$config['supervisor_servers'] = array(
-	'server01' => array(
-		'url' => 'http://server01.app/RPC2',
-		'port' => '9001',
-		'username' => 'yourusername',
-		'password' => 'yourpass'
-	),
-	'server02' => array(
-		'url' => 'http://server02.app/RPC2',
-                'port' => '9001'
-	),
-	'server03' => array(
-                'url' => 'http://server03.app/RPC2',
-                'port' => '9001'
-        ),
-);
+	$config['supervisor_servers'] = array(
+		'server01' => array(
+			'url' => 'http://server01.app/RPC2',
+			'port' => '9001',
+			'username' => 'yourusername',
+			'password' => 'yourpass'
+		),
+		'server02' => array(
+			'url' => 'http://server02.app/RPC2',
+	                'port' => '9001'
+		),
+		'server03' => array(
+	                'url' => 'http://server03.app/RPC2',
+                	'port' => '9001'
+        	),
+	);
 }
 
 // Set timeout connecting to remote supervisord RPC2 interface

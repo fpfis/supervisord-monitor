@@ -1,0 +1,6 @@
+server01:
+ url: http://server01.app/RPC2
+ port: 9001
+ username: yourusername
+ password: yourpass
+
